@@ -7,10 +7,13 @@
     <title>Rank Bank</title>
 </head>
 <body>
-    <h1 id="title">Rank Bank</h1>
-    <button onclick="displayRanks()">ADD RANK</button>
-    <button onclick="submitRanks()">GET RANKS</button>
-    <input id="entry" placeholder="Enter Rank Here">
+     <h1 id="title">Rank Bank</h1>
+    <form onsubmit="submitRanks(event)">
+        <button type="button" onclick="displayRanks()">SHOW RANKS</button>
+        <!-- <button onclick="submitRanks()">ADD RANK</button> -->
+        <input id="entry" placeholder="Enter Rank Here" />
+    </form>
+    
     <div id="entries"></div>
 
     <script src="index.js"></script>
