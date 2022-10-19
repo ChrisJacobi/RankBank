@@ -1,6 +1,4 @@
-// displayRanks() // fetch, GET
-// submitRanks() // fetch, POST
-// ADD cors to API
+
 
 async function displayRanks() {
    
@@ -11,7 +9,6 @@ async function displayRanks() {
     entries.forEach((entry) => {
         const rank = document.createElement('h1');
         rank.innerText = entry.content;
-            // console.log(entry.content);
         display.appendChild(rank);
     });
    
@@ -38,14 +35,12 @@ async function submitRanks(event) {
     
 }
 
-// function deleteEntry(id) {
-//     fetch(`http://localhost:80/${id}`, {
+// async function deleteEntry(id) {
+//     await fetch(`http://localhost:80/${id}`, {
 //         method: 'DELETE',
-//     }).then((res) => {
-//         const container = document.getElementById(id);
-//         container.remove();
 //     });
-// }
+     
+// };
 
 
 
