@@ -1,0 +1,48 @@
+
+@import "_state.scss"; 
+@import "_var.scss";
+
+
+* {
+	margin: 0;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2rem;
+	#subTitle {
+		margin: 1rem;
+	}
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem;
+	align-items: center;
+	#newRankBtn {
+		border: 1px solid black;
+		border-radius: 1.5rem;
+		cursor: pointer;
+		padding: 1rem;
+		margin-bottom: 2rem;
+		background-color: rgb(29, 233, 10);
+	}
+	#recentContainer {
+		#recentTitle {
+			color: red;
+		}
+	}
+	#formContainer {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+
+.dNone {
+	display: none;
+}

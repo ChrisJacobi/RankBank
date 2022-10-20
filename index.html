@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rank Bank</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/CSS/style.css">
+	<title>Rank Bank</title>
 </head>
 <body>
-     <h1 id="title">Rank Bank</h1>
-    <form onsubmit="submitRanks(event)">
-        <button type="button" onclick="displayRanks()">SHOW RANKS</button>
-        <!-- <button onclick="submitRanks()">ADD RANK</button> -->
-        <input id="entry" placeholder="Enter Rank Here" />
-    </form>
-    
-    <div id="entries"></div>
+	<header>
+		<h1 id="title">Rank Bank</h1>
+		<h3 id="subTitle">A collection of top 5's</h3>
+	</header>
 
-    <script src="index.js"></script>
+	<main>
+		<div id="newRankBtn">NEW RANK</div>
+
+		<form id="form" class="dNone" onsubmit="submitRanks(event)">
+			<div id="formContainer">
+			
+				<label for="entry">Title</label>
+			<input id="entry" placeholder="What are you ranking?" />
+				
+				<label for="5">5</label>
+			<input class="top5" id="5">
+				
+				<label for="4">4</label>
+			<input class="top5" id="4">
+				
+				<label for="3">3</label>
+			<input class="top5" id="3">
+				
+				<label for="2">2</label>
+			<input class="top5" id="2">
+				
+				<label for="1">1</label>
+			<input class="top5" id="1">
+
+			<button type="button" onclick="displayRanks()">SHOW RANKS</button>
+		</div>
+		</form>
+	
+		
+
+		<div id="recentContainer">
+			<p id="recentTitle">Recent Ranks</p>
+			<div id="entries"></div>
+		</div>
+	</main>
+
+	<script src="index.js"></script>
 </body>
 </html>

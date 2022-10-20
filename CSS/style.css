@@ -1,0 +1,62 @@
+#newRankBtn:hover {
+  background-color: rgb(21, 196, 5);
+}
+
+* {
+  margin: 0;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem;
+}
+header #subTitle {
+  margin: 1rem;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main #newRankBtn {
+  border: 1px solid black;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: rgb(29, 233, 10);
+}
+main #recentContainer #recentTitle {
+  color: red;
+}
+main #formContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dNone {
+  display: none;
+}
