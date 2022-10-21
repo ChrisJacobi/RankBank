@@ -1,54 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/CSS/style.css">
-	<title>Rank Bank</title>
-</head>
-<body>
-	<header>
-		<h1 id="title">Rank Bank</h1>
-		<h3 id="subTitle">A collection of top 5's</h3>
-	</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <title>Rank Bank</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Rank Bank</h1>
+      <h3 id="subTitle">A collection of top 5's</h3>
+    </header>
 
-	<main>
-		<div id="newRankBtn">NEW RANK</div>
+    <main>
+      <div id="newRankBtn">NEW RANK</div>
 
-		<form id="form" class="dNone" onsubmit="submitRanks(event)">
-			<div id="formContainer">
-			
-				<label for="entry">Title</label>
-			<input id="entry" placeholder="What are you ranking?" />
-				
-				<label for="5">5</label>
-			<input class="top5" id="5">
-				
-				<label for="4">4</label>
-			<input class="top5" id="4">
-				
-				<label for="3">3</label>
-			<input class="top5" id="3">
-				
-				<label for="2">2</label>
-			<input class="top5" id="2">
-				
-				<label for="1">1</label>
-			<input class="top5" id="1">
+      <form id="form" class="dNone" onsubmit="submitRanks(event)">
+        <div id="formContainer">
+          <input name="title" class="top5" id="entry" placeholder="What are you ranking?"/>
 
-			<button type="button" onclick="displayRanks()">SHOW RANKS</button>
-		</div>
-		</form>
-	
-		
+          <input name="1" type="text" class="top5" id="5" />
 
-		<div id="recentContainer">
-			<p id="recentTitle">Recent Ranks</p>
-			<div id="entries"></div>
-		</div>
-	</main>
+          <input name="2" type="text" class="top5" id="4" />
 
-	<script src="index.js"></script>
-</body>
+          <input name="3" type="text" class="top5" id="3" />
+
+          <input name="4" type="text" class="top5" id="2" />
+
+          <input name="5" type="text" class="top5" id="1" />
+
+          <button class="dNone">submit</button>
+          <button type="button" onclick="displayRanks()">SHOW RANKS</button>
+        </div>
+      </form>
+
+      <div id="recentContainer">
+        <p id="recentTitle">Recent Ranks</p>
+        <div id="entries"></div>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
 </html>

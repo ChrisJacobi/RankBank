@@ -55,7 +55,4 @@ function displayForm() {
 }; 
 displayForm();
 
-const test = document.getElementById('title');
-
-console.log(test.innerText);
  
