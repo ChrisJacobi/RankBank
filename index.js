@@ -1,4 +1,13 @@
 
+	const usersName = document.getElementById('name');
+	const topic = document.getElementById('topic');
+	const num5 = document.getElementById('num5');
+	const num4 = document.getElementById('num4');
+	const num3 = document.getElementById('num3');
+	const num2 = document.getElementById('num2');
+	const num1 = document.getElementById('num1');
+
+
 
 async function displayRanks() {
    
@@ -17,9 +26,9 @@ async function displayRanks() {
 async function submitRanks(event) {
 	
 	event.preventDefault();
-	const entry = document.getElementById('entry');
+	const topic = document.getElementById('topic');
 	const data = {
-		content: entry.value
+		content: topic.value
 	};
 	   
 	fetch('http://localhost:80/entry', {
@@ -29,8 +38,8 @@ async function submitRanks(event) {
 		},
 		body: JSON.stringify(data)
 	}).then(() => {
-		entry.value = '';
-		entry.focus();
+		topic.value = '';
+		topic.focus();
 	});
 	
 }
@@ -55,4 +64,18 @@ function displayForm() {
 }; 
 displayForm();
 
- 
+
+// theres gotta be a better way but it works couldnt select all with class name
+function clearForm() {
+	
+	if(usersName, topic, num5, num4, num3, num2, num1){
+		usersName.value = ''
+		topic.value = ''
+		num5.value = ''
+		num4.value = ''
+		num3.value = ''
+		num2.value = ''
+		num1.value = ''
+	};
+};
+

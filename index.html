@@ -18,19 +18,31 @@
 
       <form id="form" class="dNone" onsubmit="submitRanks(event)">
         <div id="formContainer">
-          <input id="entry" placeholder="What are you ranking?">
+          <h2>ADD NEW RANK</h2>
+          
+          <label>Name:</label>
+          <input id="name" class="top5" placeholder="ex: 'John Appleseed'">
 
-          <input type="text" class="top5" id="5" placeholder="#5">
+          <label>Topic:</label>
+          <input id="topic" class="top5" placeholder="ex: 'cats', 'dogs', 'artists'">
 
-          <input type="text" class="top5" id="4" placeholder="#4">
+          <label>Number 5</label>
+          <input type="text" class="top5" id="num5" placeholder="#5">
 
-          <input type="text" class="top5" id="3" placeholder="#3">
+          <label>Number 4</label>
+          <input type="text" class="top5" id="num4" placeholder="#4">
 
-          <input type="text" class="top5" id="2" placeholder="#2">
+          <label>Number 3</label>
+          <input type="text" class="top5" id="num3" placeholder="#3">
 
-          <input type="text" class="top5" id="1" placeholder="#1">
+          <label>Number 2</label>
+          <input type="text" class="top5" id="num2" placeholder="#2">
 
-          <button class="dNone">submit</button>
+          <label>Number 1</label>
+          <input type="text" class="top5" id="num1" placeholder="#1">
+
+          <button>Submit</button>
+          <button id="clear" onclick="clearForm()" type="button">Clear Form</button>
           <button type="button" onclick="displayRanks()">SHOW RANKS</button>
         </div>
       </form>
