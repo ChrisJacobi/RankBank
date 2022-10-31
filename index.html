@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet"> 
     <title>Rank Bank</title>
   </head>
   <body>
@@ -13,12 +16,15 @@
       <h3 id="subTitle">A collection of top 5's</h3>
     </header>
 
-    <main>
-      <div id="newRankBtn">NEW RANK</div>
+    <!-- <div id="btnContainer"> -->
+      
+    <!-- </div> -->
 
+    <main>
+      <div id="newRankBtn" class="Btn">NEW RANK</div>
       <form id="form" class="dNone" onsubmit="submitRanks(event)">
         <div id="formContainer">
-          <h2>ADD NEW RANK</h2>
+          <h2 id="FORMtitle">ADD NEW RANK</h2>
           
           <label>Name:</label>
           <input id="name" class="top5" placeholder="ex: 'John Appleseed'">
@@ -38,18 +44,26 @@
           <label>Number 2</label>
           <input type="text" class="top5" id="num2" placeholder="#2">
 
-          <label>Number 1</label>
-          <input type="text" class="top5" id="num1" placeholder="#1">
+          <label class="num1">Number 1</label>
+          <input type="text" class="top5" id= "num1" class="num1" placeholder="#1">
 
-          <button>Submit</button>
-          <button id="clear" onclick="clearForm()" type="button">Clear Form</button>
-          <button type="button" onclick="displayRanks()">SHOW RANKS</button>
+          <div id="FORMbtnContainer">
+            <button>Submit</button>
+            <button id="clear" onclick="clearForm()" type="button">Clear Form</button>
+            
+          </div>
+
         </div>
       </form>
 
+      <button id="showRanks" class="Btn" type="button" onclick="displayRanks()">SHOW RANKS</button>
+
       <div id="recentContainer">
         <p id="recentTitle">Recent Ranks</p>
+      <section id="grid">
         <div id="entries"></div>
+      </section>
+        
       </div>
     </main>
 

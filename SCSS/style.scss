@@ -5,38 +5,56 @@
 
 * {
 	margin: 0;
+	font-family: 'Oxygen', sans-serif;
 }
 body {
-	background-color: #F1FAEE;
+	background-color: $bg;
+	font-size: 1.4rem;
 }
 
 header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 2rem;
+	background-color: $hbg;
+	color: $bg;
+	#title {
+		margin-top: 1rem;
+	}
 	#subTitle {
-		margin: 1rem;
-		color: #1D3557;
+		margin: 1rem 1rem 1.75rem 1rem;
 	}
 }
+
+.Btn {
+	border: 1px solid black;
+	border-radius: 1.5rem;
+	cursor: pointer;
+	padding: 1rem;
+	margin: 1.5rem 1rem;
+	background-color: #2fdd58ea;
+	text-align: center;
+	min-width: 15rem;
+}
+.Btn:hover {
+	background-color: rgb(78, 209, 66);
+}
+#showRanks {
+	min-width: 17rem;
+	font-size: 1.2rem;
+}
+
 
 main {
 	display: flex;
 	flex-direction: column;
-	margin: 2rem;
+	margin: 0rem 2rem 2rem 2rem;
 	align-items: center;
-	#newRankBtn {
-		border: 1px solid black;
-		border-radius: 1.5rem;
-		cursor: pointer;
-		padding: 1rem;
-		margin-bottom: 2rem;
-		background-color: rgb(29, 233, 10);
-	}
+
 	#recentContainer {
+		margin-top: 1rem;
 		#recentTitle {
-			color: red;
+			color: $hbg;
 		}
 	}
 	#formContainer {
@@ -46,17 +64,37 @@ main {
 		border-radius: 2rem;
 		padding: 1.5rem;
 		margin-bottom: 2rem;
+		background-color: $fbg;
+		color: $hbg;
+		#FORMtitle {
+			margin-bottom: 1rem;
+		}
 		.top5 {
-			margin: 1rem;
+			margin: 0.5rem;
 			border-radius: 0.25rem;
 			width: 75%;
 		}
 		#topic {
 			border-radius: 0.25rem;
 			width: 75%;
-			margin: 1rem;
+			margin: 0.5rem;
+		}
+		#FORMbtnContainer {
+			margin: 1rem 5rem 0.75rem 0.5rem;
+		}
+		.num1 {
+			color: $num1;
 		}
 	}
+}
+
+
+#entries {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	border-radius: 0.5rem;
+	padding: 2rem;
 }
 
 
