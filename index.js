@@ -15,9 +15,7 @@ async function displayRanks() {
 	const entries = await res.json(); 
 	const display = document.getElementById('entries');
 	
-
 	entries.forEach((entry) => {
-
 	// create elements
 		const rankTitle = document.createElement('h3');
 		const rank5 = document.createElement('p');
@@ -25,8 +23,6 @@ async function displayRanks() {
 		const rank3 = document.createElement('p');
 		const rank2 = document.createElement('p');
 		const rank1 = document.createElement('p');
-
-		display.style.border = '1px solid black';
 
 		rankTitle.innerText = entry.content;
 		rank5.innerText = `#5: ${entry.num5}`;
@@ -85,15 +81,17 @@ function displayForm() {
 	newRankBtn.addEventListener('click', () => {
 		if (form.classList.contains('dNone')) {
 			form.classList.remove('dNone')
+			newRankBtn.innerHTML = 'CLOSE'
+			newRankBtn.style.backgroundColor = 'rgb(78, 209, 66, 0.4)'
 		} else {
 			form.classList.add('dNone')
+			newRankBtn.innerHTML = 'NEW RANK'
+			newRankBtn.style.backgroundColor = ''
 		}
 	});
 }; 
 displayForm();
 
-
-// theres gotta be a better way but it works couldnt select all with class name
 function clearForm() {
 	
 	if(usersName, topic, num5, num4, num3, num2, num1){
@@ -108,3 +106,25 @@ function clearForm() {
 	};
 };
 
+
+function rankBtn() {
+	const showRanks = document.getElementById('showRanks');
+	const display = document.getElementById('entries');
+
+	if (display.style.border === '1px solid black'){
+		display.style.border = ''
+	} else {
+		display.style.border = '1px solid black'
+	};
+
+	if (display.innerHTML){
+		display.innerHTML = ''
+		showRanks.style.backgroundColor = ''
+		display.style.border = ''
+		showRanks.innerHTML = 'SHOW RANKS'
+	} else {
+		showRanks.style.backgroundColor = 'rgb(78, 209, 66, 0.4)'
+		showRanks.innerHTML = 'HIDE RANKS'
+		displayRanks()
+	};
+};
