@@ -1,5 +1,4 @@
 
-@import "_state.scss"; 
 @import "_var.scss";
 
 
@@ -40,8 +39,12 @@ header {
 	background-color: rgb(78, 209, 66);
 }
 #showRanks {
-	min-width: 17rem;
 	font-size: 1.2rem;
+	background-color: #2fdd58ea;
+	border-radius: 0.5rem;
+}
+#showRanks:hover {
+	background-color: rgb(78, 209, 66);
 }
 
 
@@ -52,9 +55,12 @@ main {
 	align-items: center;
 
 	#recentContainer {
-		margin-top: 1rem;
+		margin: 1rem 0 0.4rem 0;
+		display: flex;
+		justify-content: space-between;
 		#recentTitle {
 			color: $hbg;
+			padding-right: 10rem;
 		}
 	}
 	#formContainer {
@@ -94,7 +100,7 @@ main {
 	text-align: center;
 	flex-direction: column;
 	border-radius: 0.5rem;
-	padding: 2rem;
+	padding: 1rem;
 }
 
 

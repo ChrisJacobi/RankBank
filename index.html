@@ -49,19 +49,21 @@
 
           <div id="FORMbtnContainer">
             <button>Submit</button>
-            <button id="clear" onclick="clearForm()" type="button">Clear Form</button>
+            <button id="clear" onclick="clearForm()" type="button">Clear</button>
             
           </div>
 
         </div>
       </form>
 
-      <button id="showRanks" class="Btn" type="button" onclick="rankBtn()">SHOW RANKS</button>
+     
 
       <div id="recentContainer">
         <p id="recentTitle">Recent Ranks</p>
-        <div id="entries"></div>
+        <button id="showRanks" class="Btn" type="button" onclick="rankBtn()">Hide Ranks</button>
       </div>
+        <div id="entries"></div>
+     
     </main>
 
     <script src="index.js"></script>

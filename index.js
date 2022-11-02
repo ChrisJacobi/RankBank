@@ -25,6 +25,7 @@ async function displayRanks() {
 		const rank1 = document.createElement('p');
 
 		rankTitle.innerText = entry.content;
+		rankTitle.style.marginTop = '1.5rem'
 		rank5.innerText = `#5: ${entry.num5}`;
 		rank4.innerText = `#4: ${entry.num4}`;
 		rank3.innerText = `#3: ${entry.num3}`;
@@ -83,19 +84,21 @@ function displayForm() {
 			form.classList.remove('dNone')
 			newRankBtn.innerHTML = 'CLOSE'
 			newRankBtn.style.backgroundColor = 'rgb(78, 209, 66, 0.4)'
+			newRankBtn.style.padding = '0'
+			newRankBtn.style.margin = '0.5rem'
 		} else {
 			form.classList.add('dNone')
 			newRankBtn.innerHTML = 'NEW RANK'
 			newRankBtn.style.backgroundColor = ''
+			newRankBtn.style.padding = ''
+			newRankBtn.style.margin = ''
 		}
 	});
 }; 
 displayForm();
 
 function clearForm() {
-	
 	if(usersName, topic, num5, num4, num3, num2, num1){
-		this.value = '';
 		usersName.value = '';
 		topic.value = '';
 		num5.value = '';
@@ -110,6 +113,7 @@ function clearForm() {
 function rankBtn() {
 	const showRanks = document.getElementById('showRanks');
 	const display = document.getElementById('entries');
+	const recentTile = document.getElementById('recentTitle');
 
 	if (display.style.border === '1px solid black'){
 		display.style.border = ''
@@ -120,11 +124,22 @@ function rankBtn() {
 	if (display.innerHTML){
 		display.innerHTML = ''
 		showRanks.style.backgroundColor = ''
+		showRanks.style.padding = ''
 		display.style.border = ''
 		showRanks.innerHTML = 'SHOW RANKS'
+		showRanks.style.minWidth = '17rem'
+		showRanks.style.borderRadius = '1.5rem'
+		recentTile.classList.add('dNone')
 	} else {
 		showRanks.style.backgroundColor = 'rgb(78, 209, 66, 0.4)'
-		showRanks.innerHTML = 'HIDE RANKS'
+		showRanks.style.padding = '0'
+		showRanks.style.margin = '0'
+		showRanks.style.minWidth = '5rem'
+		showRanks.style.borderRadius = ''
+		showRanks.innerHTML = 'Hide'
+		recentTile.classList.remove('dNone')
 		displayRanks()
 	};
 };
+
+window.addEventListener('DOMContentLoaded', rankBtn());

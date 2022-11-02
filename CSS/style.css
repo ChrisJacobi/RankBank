@@ -45,8 +45,13 @@ header #subTitle {
 }
 
 #showRanks {
-  min-width: 17rem;
   font-size: 1.2rem;
+  background-color: rgba(47, 221, 88, 0.9176470588);
+  border-radius: 0.5rem;
+}
+
+#showRanks:hover {
+  background-color: rgb(78, 209, 66);
 }
 
 main {
@@ -63,10 +68,17 @@ main {
           align-items: center;
 }
 main #recentContainer {
-  margin-top: 1rem;
+  margin: 1rem 0 0.4rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 main #recentContainer #recentTitle {
   color: #0D1321;
+  padding-right: 10rem;
 }
 main #formContainer {
   display: -webkit-box;
@@ -113,7 +125,7 @@ main #formContainer .num1 {
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 0.5rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .dNone {
