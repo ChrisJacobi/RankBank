@@ -1,7 +1,6 @@
 
 @import "_var.scss";
 
-
 * {
 	margin: 0;
 	font-family: 'Oxygen', sans-serif;
@@ -30,21 +29,21 @@ header {
 	border-radius: 1.5rem;
 	cursor: pointer;
 	padding: 1rem;
-	margin: 1.5rem 1rem;
-	background-color: #2fdd58ea;
+	margin: 1.5rem;
+	background-color: $bbg;
 	text-align: center;
 	min-width: 15rem;
 }
 .Btn:hover {
-	background-color: rgb(78, 209, 66);
+	background-color: $hover;
 }
 #showRanks {
 	font-size: 1.2rem;
-	background-color: #2fdd58ea;
+	background-color: $bbg;
 	border-radius: 0.5rem;
 }
 #showRanks:hover {
-	background-color: rgb(78, 209, 66);
+	background-color: $hover;
 }
 
 
@@ -53,32 +52,43 @@ main {
 	flex-direction: column;
 	margin: 0rem 2rem 2rem 2rem;
 	align-items: center;
-
 	#recentContainer {
 		margin: 1rem 0 0.4rem 0;
 		display: flex;
-		justify-content: space-between;
+		flex-wrap: wrap;
 		#recentTitle {
 			color: $hbg;
-			padding-right: 10rem;
+			padding-right: 11rem;
 		}
 	}
 	#formContainer {
 		display: flex;
 		flex-direction: column;
-		border: 1px solid black;
-		border-radius: 2rem;
-		padding: 1.5rem;
-		margin-bottom: 2rem;
+		align-items: center;
+		border: 1px solid $hbg;
+		border-radius: 1rem;
+		padding: 1rem;
+		margin-top: 2rem;
 		background-color: $fbg;
 		color: $hbg;
+		.label {
+			margin: 0.25rem 0 0.5rem 1.75rem;
+			align-self: flex-start;
+			color: $bg;
+		}
 		#FORMtitle {
 			margin-bottom: 1rem;
+			color: $bg;
 		}
 		.top5 {
 			margin: 0.5rem;
 			border-radius: 0.25rem;
+			border: 0.1px solid $hbg;
+			padding: 0.25rem;
 			width: 75%;
+			margin-top: 0;
+			background-color: $bg;;
+			font-size: 1rem;
 		}
 		#topic {
 			border-radius: 0.25rem;
@@ -86,10 +96,22 @@ main {
 			margin: 0.5rem;
 		}
 		#FORMbtnContainer {
-			margin: 1rem 5rem 0.75rem 0.5rem;
-		}
-		.num1 {
-			color: $num1;
+			margin: 0.5rem 1rem 0 0;
+			#clear {
+				margin-left: 2rem;
+				padding: 0.25rem 0.65rem 0.25rem 0.65rem;
+			}
+			.formBTN {
+				font-size: 1rem;
+				padding: 0.25rem;
+				background-color: $bbg;
+				border: 1px solid $hbg;
+				border-radius: 0.5rem;
+				cursor: pointer;
+			}
+			.formBTN:hover {
+				background-color: $hover;
+			}
 		}
 	}
 }
@@ -97,14 +119,25 @@ main {
 
 #entries {
 	display: flex;
-	text-align: center;
+	text-align: left;
+	font-size: 1.5rem;
 	flex-direction: column;
 	border-radius: 0.5rem;
 	padding: 1rem;
+	background-color: #1d3557e8;
+	color: $bg;
+	min-width: 75%;
 }
-
-
 
 .dNone {
 	display: none;
+}
+
+
+@media screen and (max-width: 500px){
+		
+	#recentTitle {
+		order: 1;
+	}
+
 }

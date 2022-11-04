@@ -16,54 +16,46 @@
       <h3 id="subTitle">A collection of top 5's</h3>
     </header>
 
-    <!-- <div id="btnContainer"> -->
-      
-    <!-- </div> -->
-
     <main>
-      <div id="newRankBtn" class="Btn">NEW RANK</div>
       <form id="form" class="dNone" onsubmit="submitRanks(event)">
         <div id="formContainer">
           <h2 id="FORMtitle">ADD NEW RANK</h2>
           
-          <label>Name:</label>
+          <label class="label">Name:</label>
           <input id="name" class="top5" placeholder="ex: 'John Appleseed'">
 
-          <label>Topic:</label>
+          <label class="label">Topic:</label>
           <input id="topic" class="top5" placeholder="ex: 'cats', 'dogs', 'artists'">
 
-          <label>Number 5</label>
+          <label class="label">Number 5</label>
           <input type="text" class="top5" id="num5" placeholder="#5">
 
-          <label>Number 4</label>
+          <label class="label">Number 4</label>
           <input type="text" class="top5" id="num4" placeholder="#4">
 
-          <label>Number 3</label>
+          <label class="label">Number 3</label>
           <input type="text" class="top5" id="num3" placeholder="#3">
 
-          <label>Number 2</label>
+          <label class="label">Number 2</label>
           <input type="text" class="top5" id="num2" placeholder="#2">
 
-          <label class="num1">Number 1</label>
+          <label class="num1 label">Number 1</label>
           <input type="text" class="top5" id= "num1" class="num1" placeholder="#1">
 
           <div id="FORMbtnContainer">
-            <button>Submit</button>
-            <button id="clear" onclick="clearForm()" type="button">Clear</button>
-            
+            <button class="formBTN">Submit</button>
+            <button class="formBTN" id="clear" onclick="clearForm()" type="button">Clear</button>
           </div>
-
         </div>
+       
       </form>
-
-     
+      <div id="newRankBtn" class="Btn">NEW RANK</div>
 
       <div id="recentContainer">
         <p id="recentTitle">Recent Ranks</p>
-        <button id="showRanks" class="Btn" type="button" onclick="rankBtn()">Hide Ranks</button>
+        <button id="showRanks" class="Btn" type="button" onclick="rankBtn()"></button>
       </div>
         <div id="entries"></div>
-     
     </main>
 
     <script src="index.js"></script>

@@ -34,24 +34,24 @@ header #subTitle {
   border-radius: 1.5rem;
   cursor: pointer;
   padding: 1rem;
-  margin: 1.5rem 1rem;
-  background-color: rgba(47, 221, 88, 0.9176470588);
+  margin: 1.5rem;
+  background-color: #73a8c9;
   text-align: center;
   min-width: 15rem;
 }
 
 .Btn:hover {
-  background-color: rgb(78, 209, 66);
+  background-color: #457B9D;
 }
 
 #showRanks {
   font-size: 1.2rem;
-  background-color: rgba(47, 221, 88, 0.9176470588);
+  background-color: #73a8c9;
   border-radius: 0.5rem;
 }
 
 #showRanks:hover {
-  background-color: rgb(78, 209, 66);
+  background-color: #457B9D;
 }
 
 main {
@@ -72,13 +72,12 @@ main #recentContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 main #recentContainer #recentTitle {
   color: #0D1321;
-  padding-right: 10rem;
+  padding-right: 11rem;
 }
 main #formContainer {
   display: -webkit-box;
@@ -88,20 +87,35 @@ main #formContainer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid black;
-  border-radius: 2rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  background-color: #748CAB;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #0D1321;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: rgba(29, 53, 87, 0.8823529412);
   color: #0D1321;
+}
+main #formContainer .label {
+  margin: 0.25rem 0 0.5rem 1.75rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: #F0EBD8;
 }
 main #formContainer #FORMtitle {
   margin-bottom: 1rem;
+  color: #F0EBD8;
 }
 main #formContainer .top5 {
   margin: 0.5rem;
   border-radius: 0.25rem;
+  border: 0.1px solid #0D1321;
+  padding: 0.25rem;
   width: 75%;
+  margin-top: 0;
+  background-color: #F0EBD8;
+  font-size: 1rem;
 }
 main #formContainer #topic {
   border-radius: 0.25rem;
@@ -109,25 +123,49 @@ main #formContainer #topic {
   margin: 0.5rem;
 }
 main #formContainer #FORMbtnContainer {
-  margin: 1rem 5rem 0.75rem 0.5rem;
+  margin: 0.5rem 1rem 0 0;
 }
-main #formContainer .num1 {
-  color: #fcf300;
+main #formContainer #FORMbtnContainer #clear {
+  margin-left: 2rem;
+  padding: 0.25rem 0.65rem 0.25rem 0.65rem;
+}
+main #formContainer #FORMbtnContainer .formBTN {
+  font-size: 1rem;
+  padding: 0.25rem;
+  background-color: #73a8c9;
+  border: 1px solid #0D1321;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+main #formContainer #FORMbtnContainer .formBTN:hover {
+  background-color: #457B9D;
 }
 
 #entries {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
+  text-align: left;
+  font-size: 1.5rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 0.5rem;
   padding: 1rem;
+  background-color: rgba(29, 53, 87, 0.9098039216);
+  color: #F0EBD8;
+  min-width: 75%;
 }
 
 .dNone {
   display: none;
+}
+
+@media screen and (max-width: 500px) {
+  #recentTitle {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
 }
