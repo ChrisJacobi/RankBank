@@ -117,16 +117,21 @@ main {
 }
 
 
-#entries {
+#ranks {
 	display: flex;
 	text-align: left;
 	font-size: 1.5rem;
 	flex-direction: column;
 	border-radius: 0.5rem;
-	padding: 1rem;
 	background-color: #1d3557e8;
 	color: $bg;
-	min-width: 75%;
+	.newRank {
+		margin: 1rem;
+		border: 1px solid $bg;
+		border-radius: 0.5rem;
+		padding: 1rem;
+		background-color: $bbg;
+	}
 }
 
 .dNone {

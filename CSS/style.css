@@ -141,7 +141,7 @@ main #formContainer #FORMbtnContainer .formBTN:hover {
   background-color: #457B9D;
 }
 
-#entries {
+#ranks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -152,10 +152,15 @@ main #formContainer #FORMbtnContainer .formBTN:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 0.5rem;
-  padding: 1rem;
   background-color: rgba(29, 53, 87, 0.9098039216);
   color: #F0EBD8;
-  min-width: 75%;
+}
+#ranks .newRank {
+  margin: 1rem;
+  border: 1px solid #F0EBD8;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #73a8c9;
 }
 
 .dNone {

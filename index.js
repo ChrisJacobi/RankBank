@@ -6,6 +6,7 @@ const num4 = document.getElementById('num4');
 const num3 = document.getElementById('num3');
 const num2 = document.getElementById('num2');
 const num1 = document.getElementById('num1');
+const display = document.getElementById('ranks');
 
 // loads DB rank entries to display on launch
 window.addEventListener('DOMContentLoaded', rankBtn());
@@ -55,39 +56,30 @@ async function submitRanks(event) {
 };
 
 
+function createRankElement(rank) {
+	const rankElement = document.createElement('article')
+	rankElement.classList.add('newRank')
+	rankElement.innerHTML = `
+	<h3> ${rank.content} </h3>
+	<ul>
+		<li>#5: ${rank.num5}</li>
+		<li>#4: ${rank.num4}</li>
+		<li>#3: ${rank.num3}</li>
+		<li>#2: ${rank.num2}</li>
+		<li>#1: ${rank.num1}</li>
+	</ul>
+	`
+	display.appendChild(rankElement)
+}
+
+
 // displays data from DB on home page
 async function displayRanks() {
 	const res = await fetch('http://localhost:80/entries');   
 	const entries = await res.json(); 
-	const display = document.getElementById('entries');
-
-	entries.forEach((entry) => {
-	// create elements to display
-		const rankTitle = document.createElement('h3');
-		const rank5 = document.createElement('p');
-		const rank4 = document.createElement('p');
-		const rank3 = document.createElement('p');
-		const rank2 = document.createElement('p');
-		const rank1 = document.createElement('p');
-
-	// what you see displayed
-		rankTitle.innerText = entry.content;
-		rankTitle.style.margin = '1.5rem 0  0.75rem 0'
-		rankTitle.style.textDecoration = 'underline'
-		rank5.innerText = `#5: ${entry.num5}`;
-		rank4.innerText = `#4: ${entry.num4}`;
-		rank3.innerText = `#3: ${entry.num3}`;
-		rank2.innerText = `#2: ${entry.num2}`;
-		rank1.innerText = `#1: ${entry.num1}`;
-		rank1.style.color = '#fcf300';
-
-	// insert into HTML
-		display.appendChild(rankTitle);
-		display.appendChild(rank5);
-		display.appendChild(rank4);
-		display.appendChild(rank3);
-		display.appendChild(rank2);
-		display.appendChild(rank1);
+	
+	entries.forEach((rank) => {
+		createRankElement(rank)
 	});
 };
 
@@ -121,7 +113,6 @@ function clearForm() {
 // rank entries and rank button STYLING functionality. 
 function rankBtn() {
 	const showRanks = document.getElementById('showRanks');
-	const display = document.getElementById('entries');
 	const recentTile = document.getElementById('recentTitle');
 
 	if (display.style.border === '1px solid black'){
