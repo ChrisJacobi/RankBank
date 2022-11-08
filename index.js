@@ -8,6 +8,7 @@ const num2 = document.getElementById('num2');
 const num1 = document.getElementById('num1');
 const display = document.getElementById('ranks');
 
+
 // loads DB rank entries to display on launch
 window.addEventListener('DOMContentLoaded', rankBtn());
 
@@ -43,7 +44,7 @@ async function submitRanks(event) {
 		num2: num2.value,
 		num1: num1.value
 	};
-	fetch('http://localhost:80/entry', {
+	fetch('http://localhost:80/post/rank', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -55,33 +56,55 @@ async function submitRanks(event) {
 	});
 };
 
-
 function createRankElement(rank) {
 	const rankElement = document.createElement('article')
 	rankElement.classList.add('newRank')
 	rankElement.innerHTML = `
-	<h3> ${rank.content} </h3>
-	<ul>
+	<h3 id='rankTitle'> ${rank.content} </h3>
+	<ul id='top5list'>
 		<li>#5: ${rank.num5}</li>
 		<li>#4: ${rank.num4}</li>
 		<li>#3: ${rank.num3}</li>
 		<li>#2: ${rank.num2}</li>
-		<li>#1: ${rank.num1}</li>
+		<li id='num1'>#1: ${rank.num1} <img id="victor" src="/IMG/crown.png" alt="number1"></li>
 	</ul>
+	<img onClick="likeBtn()" class="like" id="like" src="/IMG/love.png" alt="like"><label id="likeCount"></label>
 	`
-	display.appendChild(rankElement)
+	display.appendChild(rankElement);
 }
-
 
 // displays data from DB on home page
 async function displayRanks() {
-	const res = await fetch('http://localhost:80/entries');   
+	const res = await fetch('http://localhost:80/ranks');   
 	const entries = await res.json(); 
 	
 	entries.forEach((rank) => {
 		createRankElement(rank)
 	});
 };
+
+// WORK IN PROGRESS
+function likeBtn() {
+	const like = document.getElementById('like')
+	const count = document.getElementById('likeCount')
+	if (like.getAttribute('src') === '/IMG/love.png'){
+		like.setAttribute('src', '/IMG/heart.png')
+		count.innerText++
+		count.style.margin = '0.5rem'
+		count.style.fontSize = '1rem'
+	} else {
+		like.setAttribute('src', '/IMG/love.png')
+		count.innerText--
+			if (count.innerText === '0'){
+				count.innerText = ''
+		}
+	}
+}
+// WORK IN PROGRESS
+
+
+
+
 
 
 

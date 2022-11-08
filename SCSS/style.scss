@@ -52,15 +52,6 @@ main {
 	flex-direction: column;
 	margin: 0rem 2rem 2rem 2rem;
 	align-items: center;
-	#recentContainer {
-		margin: 1rem 0 0.4rem 0;
-		display: flex;
-		flex-wrap: wrap;
-		#recentTitle {
-			color: $hbg;
-			padding-right: 11rem;
-		}
-	}
 	#formContainer {
 		display: flex;
 		flex-direction: column;
@@ -69,16 +60,16 @@ main {
 		border-radius: 1rem;
 		padding: 1rem;
 		margin-top: 2rem;
-		background-color: $fbg;
+		background-color: $bbg;
 		color: $hbg;
 		.label {
 			margin: 0.25rem 0 0.5rem 1.75rem;
 			align-self: flex-start;
-			color: $bg;
+			color: $hbg;
 		}
 		#FORMtitle {
 			margin-bottom: 1rem;
-			color: $bg;
+			color: $hbg;
 		}
 		.top5 {
 			margin: 0.5rem;
@@ -89,6 +80,7 @@ main {
 			margin-top: 0;
 			background-color: $bg;;
 			font-size: 1rem;
+			
 		}
 		#topic {
 			border-radius: 0.25rem;
@@ -104,14 +96,25 @@ main {
 			.formBTN {
 				font-size: 1rem;
 				padding: 0.25rem;
-				background-color: $bbg;
+				background-color: $rcbg;
 				border: 1px solid $hbg;
 				border-radius: 0.5rem;
 				cursor: pointer;
+				color: $bg;
 			}
 			.formBTN:hover {
 				background-color: $hover;
 			}
+		}
+	}
+	#recentTitleContainer {
+		margin: 1rem 0 0.4rem 0;
+		display: flex;
+		flex-wrap: wrap;
+		#recentTitle {
+			color: $hbg;
+			padding-right: 11rem;
+			font-weight: 0;
 		}
 	}
 }
@@ -119,18 +122,36 @@ main {
 
 #ranks {
 	display: flex;
-	text-align: left;
 	font-size: 1.5rem;
 	flex-direction: column;
 	border-radius: 0.5rem;
-	background-color: #1d3557e8;
-	color: $bg;
+	color: $rankText;
+	min-width: 80%;
 	.newRank {
 		margin: 1rem;
 		border: 1px solid $bg;
 		border-radius: 0.5rem;
-		padding: 1rem;
+		padding: 1.75rem 3rem 3rem 1.75rem;
 		background-color: $bbg;
+	}
+	#top5list {
+		list-style: none;
+		padding-left: 0.5rem;
+		margin-top: 0.75rem;
+	}
+	#rankTitle {
+		color: $hbg;
+	}
+	#num1 {
+		color: #ffd60a;
+	}
+	#victor {
+		max-width: 1.5rem;
+	}
+	.like {
+		max-width: 1.5rem;
+		margin: 1rem 0 0 0.5rem;
+		cursor: pointer;
 	}
 }
 
@@ -139,10 +160,16 @@ main {
 }
 
 
-@media screen and (max-width: 500px){
-		
+@media screen and (max-width: 500px){	
 	#recentTitle {
 		order: 1;
 	}
+}
 
+@media screen and (min-width: 950px) {
+	#ranks {
+		flex-direction: row;
+		font-size: 1rem;
+		flex-wrap: wrap;
+	}
 }

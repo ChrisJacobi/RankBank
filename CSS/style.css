@@ -67,18 +67,6 @@ main {
       -ms-flex-align: center;
           align-items: center;
 }
-main #recentContainer {
-  margin: 1rem 0 0.4rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-main #recentContainer #recentTitle {
-  color: #0D1321;
-  padding-right: 11rem;
-}
 main #formContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,18 +82,18 @@ main #formContainer {
   border-radius: 1rem;
   padding: 1rem;
   margin-top: 2rem;
-  background-color: rgba(29, 53, 87, 0.8823529412);
+  background-color: #73a8c9;
   color: #0D1321;
 }
 main #formContainer .label {
   margin: 0.25rem 0 0.5rem 1.75rem;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  color: #F0EBD8;
+  color: #0D1321;
 }
 main #formContainer #FORMtitle {
   margin-bottom: 1rem;
-  color: #F0EBD8;
+  color: #0D1321;
 }
 main #formContainer .top5 {
   margin: 0.5rem;
@@ -132,35 +120,67 @@ main #formContainer #FORMbtnContainer #clear {
 main #formContainer #FORMbtnContainer .formBTN {
   font-size: 1rem;
   padding: 0.25rem;
-  background-color: #73a8c9;
+  background-color: rgba(29, 53, 87, 0.9098039216);
   border: 1px solid #0D1321;
   border-radius: 0.5rem;
   cursor: pointer;
+  color: #F0EBD8;
 }
 main #formContainer #FORMbtnContainer .formBTN:hover {
   background-color: #457B9D;
+}
+main #recentTitleContainer {
+  margin: 1rem 0 0.4rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+main #recentTitleContainer #recentTitle {
+  color: #0D1321;
+  padding-right: 11rem;
+  font-weight: 0;
 }
 
 #ranks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: left;
   font-size: 1.5rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 0.5rem;
-  background-color: rgba(29, 53, 87, 0.9098039216);
-  color: #F0EBD8;
+  color: #ececec;
+  min-width: 80%;
 }
 #ranks .newRank {
   margin: 1rem;
   border: 1px solid #F0EBD8;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 1.75rem 3rem 3rem 1.75rem;
   background-color: #73a8c9;
+}
+#ranks #top5list {
+  list-style: none;
+  padding-left: 0.5rem;
+  margin-top: 0.75rem;
+}
+#ranks #rankTitle {
+  color: #0D1321;
+}
+#ranks #num1 {
+  color: #ffd60a;
+}
+#ranks #victor {
+  max-width: 1.5rem;
+}
+#ranks .like {
+  max-width: 1.5rem;
+  margin: 1rem 0 0 0.5rem;
+  cursor: pointer;
 }
 
 .dNone {
@@ -172,5 +192,16 @@ main #formContainer #FORMbtnContainer .formBTN:hover {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+  }
+}
+@media screen and (min-width: 950px) {
+  #ranks {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    font-size: 1rem;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
