@@ -131,7 +131,7 @@ main {
 		margin: 1rem;
 		border: 1px solid $bg;
 		border-radius: 0.5rem;
-		padding: 1.75rem 3rem 3rem 1.75rem;
+		padding: 1.75rem 3rem 0.5rem 1.75rem;
 		background-color: $bbg;
 	}
 	#top5list {
@@ -148,12 +148,23 @@ main {
 	#victor {
 		max-width: 1.5rem;
 	}
-	.like {
+	.like, #delete {
 		max-width: 1.5rem;
 		margin: 1rem 0 0 0.5rem;
 		cursor: pointer;
 	}
+	#likeAndDelete {
+		display: flex;
+		justify-content: space-between;
+	}
+	._id {
+		color : $rankText;
+		font-size: 0.75rem;
+		margin-top: 1rem;
+		padding-left: 0.15rem;
+	}
 }
+
 
 .dNone {
 	display: none;

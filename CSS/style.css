@@ -160,7 +160,7 @@ main #recentTitleContainer #recentTitle {
   margin: 1rem;
   border: 1px solid #F0EBD8;
   border-radius: 0.5rem;
-  padding: 1.75rem 3rem 3rem 1.75rem;
+  padding: 1.75rem 3rem 0.5rem 1.75rem;
   background-color: #73a8c9;
 }
 #ranks #top5list {
@@ -177,10 +177,24 @@ main #recentTitleContainer #recentTitle {
 #ranks #victor {
   max-width: 1.5rem;
 }
-#ranks .like {
+#ranks .like, #ranks #delete {
   max-width: 1.5rem;
   margin: 1rem 0 0 0.5rem;
   cursor: pointer;
+}
+#ranks #likeAndDelete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+#ranks ._id {
+  color: #ececec;
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  padding-left: 0.15rem;
 }
 
 .dNone {

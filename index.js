@@ -7,7 +7,9 @@ const num3 = document.getElementById('num3');
 const num2 = document.getElementById('num2');
 const num1 = document.getElementById('num1');
 const display = document.getElementById('ranks');
-
+const form = document.getElementById('form');
+let currentRank = null;
+let rankList = [];
 
 // loads DB rank entries to display on launch
 window.addEventListener('DOMContentLoaded', rankBtn());
@@ -51,14 +53,18 @@ async function submitRanks(event) {
 		},
 		body: JSON.stringify(data)
 	}).then(() => {
+		refresh();
 		clearForm();
-		usersName.focus();
 	});
 };
+function refresh() {
+	window.location.reload();
+}
 
 function createRankElement(rank) {
 	const rankElement = document.createElement('article')
 	rankElement.classList.add('newRank')
+	rankElement.id = 'newRank'
 	rankElement.innerHTML = `
 	<h3 id='rankTitle'> ${rank.content} </h3>
 	<ul id='top5list'>
@@ -68,7 +74,11 @@ function createRankElement(rank) {
 		<li>#2: ${rank.num2}</li>
 		<li id='num1'>#1: ${rank.num1} <img id="victor" src="/IMG/crown.png" alt="number1"></li>
 	</ul>
+	<div id="likeAndDelete">
 	<img onClick="likeBtn()" class="like" id="like" src="/IMG/love.png" alt="like"><label id="likeCount"></label>
+	<img onClick="deleteEntry()" class ="delete" id="delete" src="/IMG/delete.png" alt="delete">
+	</div>
+	<div class="_id" id="_id">${rank._id}</div>
 	`
 	display.appendChild(rankElement);
 }
@@ -76,46 +86,57 @@ function createRankElement(rank) {
 // displays data from DB on home page
 async function displayRanks() {
 	const res = await fetch('http://localhost:80/ranks');   
-	const entries = await res.json(); 
-	
-	entries.forEach((rank) => {
+	const ranks = await res.json();
+	ranks.forEach((rank) => {
 		createRankElement(rank)
+		rankList.push(rank)
 	});
 };
+
+
+
 
 // WORK IN PROGRESS
 function likeBtn() {
 	const like = document.getElementById('like')
-	const count = document.getElementById('likeCount')
+	// const count = document.getElementById('likeCount')
 	if (like.getAttribute('src') === '/IMG/love.png'){
 		like.setAttribute('src', '/IMG/heart.png')
-		count.innerText++
-		count.style.margin = '0.5rem'
-		count.style.fontSize = '1rem'
+		// count.innerText++
+		// count.style.margin = '0.5rem'
+		// count.style.fontSize = '1rem'
 	} else {
 		like.setAttribute('src', '/IMG/love.png')
-		count.innerText--
-			if (count.innerText === '0'){
-				count.innerText = ''
-		}
+	// 	count.innerText--
+	// 		if (count.innerText === '0'){
+	// 			count.innerText = ''
+	// 	}
 	}
 }
 // WORK IN PROGRESS
 
 
+// function selectRank(rank) {
+// 	if (rank._id) {currentRank = rank}
+// 	else {currentRank = null}
+// }
 
-
-
-
-
-// async function deleteEntry() {
-// 	if (_id){
-//     await fetch(`http://localhost:80/entry/${_id}`, {
-//         method: 'DELETE',
-//     })
-// 	const rankEntry = document.getElementById()
-// 	}; 
-// };
+async function deleteEntry() {
+	currentRank = document.getElementById('_id').innerHTML
+    await fetch(`http://localhost:80/rank/${currentRank}`, {
+        method: 'DELETE',
+    }).then(() => {
+		refresh()
+	});
+	rankList.forEach(() => {
+		if (_id === currentRank) {
+			const rank = document.getElementById('newRank')
+			rank.deleteOne();
+		}
+	});
+	
+	
+};
 
 
 // clears entry form
@@ -165,4 +186,4 @@ function rankBtn() {
 	};
 };
 
-
+console.log(rankList)
