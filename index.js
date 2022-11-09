@@ -115,12 +115,7 @@ function likeBtn() {
 }
 // WORK IN PROGRESS
 
-
-// function selectRank(rank) {
-// 	if (rank._id) {currentRank = rank}
-// 	else {currentRank = null}
-// }
-
+// Delete Ranks
 async function deleteEntry() {
 	currentRank = document.getElementById('_id').innerHTML
     await fetch(`http://localhost:80/rank/${currentRank}`, {
@@ -134,8 +129,6 @@ async function deleteEntry() {
 			rank.deleteOne();
 		}
 	});
-	
-	
 };
 
 
@@ -158,6 +151,7 @@ function clearForm() {
 function rankBtn() {
 	const showRanks = document.getElementById('showRanks');
 	const recentTile = document.getElementById('recentTitle');
+	const recentRanksIcon = document.getElementById('recentRanksIcon');
 
 	if (display.style.border === '1px solid black'){
 		display.style.border = ''
@@ -172,8 +166,9 @@ function rankBtn() {
 		display.style.backgroundColor = '#F0EBD8'
 		showRanks.innerHTML = 'SHOW RANKS'
 		showRanks.style.minWidth = '17rem'
-		showRanks.style.borderRadius = '1.5rem'
+		showRanks.style.borderRadius = '0.5rem'
 		recentTile.classList.add('dNone')
+		recentRanksIcon.classList.add('dNone')
 	} else {
 		showRanks.style.padding = '0'
 		showRanks.style.margin = '0'
@@ -181,6 +176,7 @@ function rankBtn() {
 		showRanks.style.borderRadius = ''
 		showRanks.innerHTML = 'Hide'
 		recentTile.classList.remove('dNone')
+		recentRanksIcon.classList.remove('dNone')
 		display.style.backgroundColor = '#1d3557e8'
 		displayRanks()
 	};

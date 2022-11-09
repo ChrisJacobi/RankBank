@@ -12,42 +12,63 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: #0D1321;
   color: #F0EBD8;
 }
 header #title {
-  margin-top: 1rem;
+  margin: 1rem;
 }
 header #subTitle {
   margin: 1rem 1rem 1.75rem 1rem;
 }
+header .rankIcon {
+  max-width: 5rem;
+  margin: 1rem;
+}
+header #titleContainerHeader {
+  text-align: center;
+}
+header #flippedIcon {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+#line {
+  min-height: 5px;
+  background-color: rgba(29, 53, 87, 0.8823529412);
+  -webkit-box-shadow: 0px 0px 3px black;
+          box-shadow: 0px 0px 3px black;
+}
 
 .Btn {
-  border: 1px solid black;
-  border-radius: 1.5rem;
+  border: 1px solid #0D1321;
+  border-radius: 0.5rem;
   cursor: pointer;
   padding: 1rem;
   margin: 1.5rem;
   background-color: #73a8c9;
   text-align: center;
   min-width: 15rem;
+  -webkit-box-shadow: 0px 0px 2px #0D1321;
+          box-shadow: 0px 0px 2px #0D1321;
 }
 
 .Btn:hover {
   background-color: #457B9D;
+  border-radius: 0.75rem;
+  -webkit-box-shadow: 0 0 3px #0D1321;
+          box-shadow: 0 0 3px #0D1321;
 }
 
 #showRanks {
   font-size: 1.2rem;
   background-color: #73a8c9;
-  border-radius: 0.5rem;
 }
 
 #showRanks:hover {
@@ -84,6 +105,8 @@ main #formContainer {
   margin-top: 2rem;
   background-color: #73a8c9;
   color: #0D1321;
+  -webkit-box-shadow: 0 0 1px #0D1321;
+          box-shadow: 0 0 1px #0D1321;
 }
 main #formContainer .label {
   margin: 0.25rem 0 0.5rem 1.75rem;
@@ -104,6 +127,8 @@ main #formContainer .top5 {
   margin-top: 0;
   background-color: #F0EBD8;
   font-size: 1rem;
+  -webkit-box-shadow: 1px 0.25rem 1px #0D1321;
+          box-shadow: 1px 0.25rem 1px #0D1321;
 }
 main #formContainer #topic {
   border-radius: 0.25rem;
@@ -122,12 +147,16 @@ main #formContainer #FORMbtnContainer .formBTN {
   padding: 0.25rem;
   background-color: rgba(29, 53, 87, 0.9098039216);
   border: 1px solid #0D1321;
+  -webkit-box-shadow: 0 0 1px #0D1321;
+          box-shadow: 0 0 1px #0D1321;
   border-radius: 0.5rem;
   cursor: pointer;
   color: #F0EBD8;
 }
 main #formContainer #FORMbtnContainer .formBTN:hover {
   background-color: #457B9D;
+  -webkit-box-shadow: 0 0 3px #0D1321;
+          box-shadow: 0 0 3px #0D1321;
 }
 main #recentTitleContainer {
   margin: 1rem 0 0.4rem 0;
@@ -136,6 +165,10 @@ main #recentTitleContainer {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+main #recentTitleContainer #recentRanksIcon {
+  max-width: 1.75rem;
+  margin-right: 1rem;
 }
 main #recentTitleContainer #recentTitle {
   color: #0D1321;
@@ -155,6 +188,8 @@ main #recentTitleContainer #recentTitle {
   border-radius: 0.5rem;
   color: #ececec;
   min-width: 80%;
+  -webkit-box-shadow: 0px 0px 3px black;
+          box-shadow: 0px 0px 3px black;
 }
 #ranks .newRank {
   margin: 1rem;
@@ -177,10 +212,23 @@ main #recentTitleContainer #recentTitle {
 #ranks #victor {
   max-width: 1.5rem;
 }
-#ranks .like, #ranks #delete {
+#ranks .like {
   max-width: 1.5rem;
   margin: 1rem 0 0 0.5rem;
   cursor: pointer;
+  padding: 0.35rem;
+}
+#ranks #delete {
+  max-width: 1.6rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  padding: 0.35rem;
+}
+#ranks #delete:hover, #ranks .like:hover {
+  -webkit-box-shadow: 1px 1px 3px #0D1321;
+          box-shadow: 1px 1px 3px #0D1321;
+  text-align: center;
+  border-radius: 0.25rem;
 }
 #ranks #likeAndDelete {
   display: -webkit-box;
@@ -189,26 +237,20 @@ main #recentTitleContainer #recentTitle {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 1rem;
 }
 #ranks ._id {
   color: #ececec;
   font-size: 0.75rem;
   margin-top: 1rem;
-  padding-left: 0.15rem;
+  padding-left: 0.5rem;
 }
 
 .dNone {
   display: none;
 }
 
-@media screen and (max-width: 500px) {
-  #recentTitle {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-  }
-}
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 750px) {
   #ranks {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

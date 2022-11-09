@@ -12,35 +12,54 @@ body {
 
 header {
 	display: flex;
-	flex-direction: column;
+	// flex-direction: column;
 	align-items: center;
+	justify-content: space-between;
 	background-color: $hbg;
 	color: $bg;
 	#title {
-		margin-top: 1rem;
+		margin: 1rem;
 	}
 	#subTitle {
 		margin: 1rem 1rem 1.75rem 1rem;
 	}
+	.rankIcon {
+		max-width: 5rem;
+		margin: 1rem;
+	}
+	#titleContainerHeader {
+		text-align: center;
+	}
+	#flippedIcon {
+		transform: scaleX(-1);
+	}
+}
+
+#line {
+	min-height: 5px;
+	background-color: $fbg;
+	box-shadow: 0px 0px 3px black;
 }
 
 .Btn {
-	border: 1px solid black;
-	border-radius: 1.5rem;
+	border: 1px solid $hbg;
+	border-radius: 0.5rem;
 	cursor: pointer;
 	padding: 1rem;
 	margin: 1.5rem;
 	background-color: $bbg;
 	text-align: center;
 	min-width: 15rem;
+	box-shadow: 0px 0px 2px $hbg;
 }
 .Btn:hover {
 	background-color: $hover;
+	border-radius: 0.75rem;
+	box-shadow: 0 0 3px $hbg;
 }
 #showRanks {
 	font-size: 1.2rem;
 	background-color: $bbg;
-	border-radius: 0.5rem;
 }
 #showRanks:hover {
 	background-color: $hover;
@@ -62,6 +81,7 @@ main {
 		margin-top: 2rem;
 		background-color: $bbg;
 		color: $hbg;
+		box-shadow: 0 0 1px $hbg;
 		.label {
 			margin: 0.25rem 0 0.5rem 1.75rem;
 			align-self: flex-start;
@@ -80,7 +100,7 @@ main {
 			margin-top: 0;
 			background-color: $bg;;
 			font-size: 1rem;
-			
+			box-shadow: 1px 0.25rem 1px $hbg;
 		}
 		#topic {
 			border-radius: 0.25rem;
@@ -98,12 +118,14 @@ main {
 				padding: 0.25rem;
 				background-color: $rcbg;
 				border: 1px solid $hbg;
+				box-shadow: 0 0 1px $hbg;
 				border-radius: 0.5rem;
 				cursor: pointer;
 				color: $bg;
 			}
 			.formBTN:hover {
 				background-color: $hover;
+				box-shadow: 0 0 3px $hbg;
 			}
 		}
 	}
@@ -111,6 +133,10 @@ main {
 		margin: 1rem 0 0.4rem 0;
 		display: flex;
 		flex-wrap: wrap;
+		#recentRanksIcon {
+			max-width: 1.75rem;
+			margin-right: 1rem;
+		}
 		#recentTitle {
 			color: $hbg;
 			padding-right: 11rem;
@@ -127,6 +153,7 @@ main {
 	border-radius: 0.5rem;
 	color: $rankText;
 	min-width: 80%;
+	box-shadow: 0px 0px 3px black;
 	.newRank {
 		margin: 1rem;
 		border: 1px solid $bg;
@@ -148,20 +175,33 @@ main {
 	#victor {
 		max-width: 1.5rem;
 	}
-	.like, #delete {
+	.like{
 		max-width: 1.5rem;
 		margin: 1rem 0 0 0.5rem;
 		cursor: pointer;
+		padding: 0.35rem;
+	}
+	#delete {
+		max-width: 1.6rem;
+		margin-top: 1rem;
+		cursor: pointer;
+		padding: 0.35rem;
+	}
+	#delete:hover, .like:hover {
+		box-shadow: 1px 1px 3px $hbg;
+		text-align: center;
+		border-radius: 0.25rem;
 	}
 	#likeAndDelete {
 		display: flex;
 		justify-content: space-between;
+		margin-bottom: 1rem;
 	}
 	._id {
 		color : $rankText;
 		font-size: 0.75rem;
 		margin-top: 1rem;
-		padding-left: 0.15rem;
+		padding-left: 0.5rem;
 	}
 }
 
@@ -171,13 +211,13 @@ main {
 }
 
 
-@media screen and (max-width: 500px){	
-	#recentTitle {
-		order: 1;
-	}
-}
+// @media screen and (max-width: 500px){	
+// // 	#recentTitle {
+// // 		order: 1;
+// // 	}
+// // }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 750px) {
 	#ranks {
 		flex-direction: row;
 		font-size: 1rem;

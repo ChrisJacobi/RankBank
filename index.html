@@ -12,9 +12,15 @@
   </head>
   <body>
     <header>
-      <h1 id="title">Rank Bank</h1>
-      <h3 id="subTitle">A collection of top 5's</h3>
+      <img src="/IMG/bank.png" class="rankIcon" id="flippedIcon" alt="rank-icon">
+      <div id="titleContainerHeader">
+        <h1 id="title">Rank Bank</h1>
+        <h3 id="subTitle">A collection of top 5's</h3>
+      </div>
+      <img src="/IMG/bank.png" class="rankIcon"  alt="rank-icon">
     </header>
+
+    <div id="line"></div>
 
     <main>
       <form id="form" class="dNone" onsubmit="submitRanks(event)">
@@ -52,6 +58,7 @@
       <div id="newRankBtn" class="Btn">NEW RANK</div>
 
       <div id="recentTitleContainer">
+        <img src="/IMG/recent.png" id="recentRanksIcon" alt="recent-ranks-icon">
         <label id="recentTitle">Recent Ranks</label>
         <button id="showRanks" class="Btn" type="button" onclick="rankBtn()"></button>
       </div>
