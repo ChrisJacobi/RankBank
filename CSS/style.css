@@ -42,8 +42,6 @@ header #flippedIcon {
 #line {
   min-height: 5px;
   background-color: rgba(29, 53, 87, 0.8823529412);
-  -webkit-box-shadow: 0px 0px 3px black;
-          box-shadow: 0px 0px 3px black;
 }
 
 .Btn {
@@ -55,8 +53,6 @@ header #flippedIcon {
   background-color: #73a8c9;
   text-align: center;
   min-width: 15rem;
-  -webkit-box-shadow: 0px 0px 2px #0D1321;
-          box-shadow: 0px 0px 2px #0D1321;
 }
 
 .Btn:hover {
@@ -105,8 +101,6 @@ main #formContainer {
   margin-top: 2rem;
   background-color: #73a8c9;
   color: #0D1321;
-  -webkit-box-shadow: 0 0 1px #0D1321;
-          box-shadow: 0 0 1px #0D1321;
 }
 main #formContainer .label {
   margin: 0.25rem 0 0.5rem 1.75rem;
@@ -168,7 +162,7 @@ main #recentTitleContainer {
 }
 main #recentTitleContainer #recentRanksIcon {
   max-width: 1.75rem;
-  margin-right: 1rem;
+  margin-right: 0.25rem;
 }
 main #recentTitleContainer #recentTitle {
   color: #0D1321;
@@ -212,7 +206,7 @@ main #recentTitleContainer #recentTitle {
 #ranks #victor {
   max-width: 1.5rem;
 }
-#ranks .like {
+#ranks .download {
   max-width: 1.5rem;
   margin: 1rem 0 0 0.5rem;
   cursor: pointer;
@@ -224,13 +218,13 @@ main #recentTitleContainer #recentTitle {
   cursor: pointer;
   padding: 0.35rem;
 }
-#ranks #delete:hover, #ranks .like:hover {
+#ranks #delete:hover, #ranks .download:hover {
   -webkit-box-shadow: 1px 1px 3px #0D1321;
           box-shadow: 1px 1px 3px #0D1321;
   text-align: center;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 }
-#ranks #likeAndDelete {
+#ranks #downloadAndDelete {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,14 +244,36 @@ main #recentTitleContainer #recentTitle {
   display: none;
 }
 
+@media screen and (max-width: 501px) {
+  #recentTitleContainer {
+    display: grid;
+  }
+  #recentTitleContainer #ranksPlusIcon {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
 @media screen and (min-width: 750px) {
+  main #recentTitleContainer {
+    margin-top: 2.75rem;
+  }
+  main #recentTitleContainer #ranksPlusIcon {
+    margin-right: 15rem;
+  }
   #ranks {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    font-size: 1rem;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1250px) {
+  main #recentTitleContainer {
+    margin-top: 6rem;
+  }
+  main #recentTitleContainer #ranksPlusIcon {
+    margin-right: 45rem;
+  }
+  #ranks {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

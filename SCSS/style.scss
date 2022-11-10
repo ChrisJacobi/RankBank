@@ -38,7 +38,6 @@ header {
 #line {
 	min-height: 5px;
 	background-color: $fbg;
-	box-shadow: 0px 0px 3px black;
 }
 
 .Btn {
@@ -50,7 +49,6 @@ header {
 	background-color: $bbg;
 	text-align: center;
 	min-width: 15rem;
-	box-shadow: 0px 0px 2px $hbg;
 }
 .Btn:hover {
 	background-color: $hover;
@@ -81,7 +79,6 @@ main {
 		margin-top: 2rem;
 		background-color: $bbg;
 		color: $hbg;
-		box-shadow: 0 0 1px $hbg;
 		.label {
 			margin: 0.25rem 0 0.5rem 1.75rem;
 			align-self: flex-start;
@@ -135,7 +132,7 @@ main {
 		flex-wrap: wrap;
 		#recentRanksIcon {
 			max-width: 1.75rem;
-			margin-right: 1rem;
+			margin-right: 0.25rem;
 		}
 		#recentTitle {
 			color: $hbg;
@@ -175,7 +172,7 @@ main {
 	#victor {
 		max-width: 1.5rem;
 	}
-	.like{
+	.download{
 		max-width: 1.5rem;
 		margin: 1rem 0 0 0.5rem;
 		cursor: pointer;
@@ -187,12 +184,12 @@ main {
 		cursor: pointer;
 		padding: 0.35rem;
 	}
-	#delete:hover, .like:hover {
+	#delete:hover, .download:hover {
 		box-shadow: 1px 1px 3px $hbg;
 		text-align: center;
-		border-radius: 0.25rem;
+		border-radius: 0.5rem;
 	}
-	#likeAndDelete {
+	#downloadAndDelete {
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 1rem;
@@ -211,16 +208,46 @@ main {
 }
 
 
-// @media screen and (max-width: 500px){	
-// // 	#recentTitle {
-// // 		order: 1;
-// // 	}
-// // }
+
+
+
+
+@media screen and (max-width: 501px) {
+	#recentTitleContainer {
+		display: grid;
+		#ranksPlusIcon {
+			order: 1;
+		}
+	}
+}
 
 @media screen and (min-width: 750px) {
-	#ranks {
-		flex-direction: row;
-		font-size: 1rem;
-		flex-wrap: wrap;
+	
+	main {
+		#recentTitleContainer {
+			margin-top: 2.75rem;
+			#ranksPlusIcon {
+				margin-right: 15rem;
+			}
+		}
 	}
+	#ranks {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (min-width: 1250px) {
+	main {
+		#recentTitleContainer {
+			margin-top: 6rem;
+			#ranksPlusIcon {
+				margin-right: 45rem;
+			}
+		}
+	}
+	#ranks {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
 }

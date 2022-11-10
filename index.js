@@ -34,10 +34,34 @@ function displayForm() {
 }; 
 displayForm();
 
+// clears entry form
+function clearForm() {
+	if(usersName, topic, num5, num4, num3, num2, num1){
+		usersName.value = '';
+		topic.value = '';
+		num5.value = '';
+		num4.value = '';
+		num3.value = '';
+		num2.value = '';
+		num1.value = '';
+	};
+};
+
+
+function validateForm() {
+	if (usersName.value, topic.value, num5.value, num4.value, num3.value, num2.value, num1.value === ''){
+		alert("Must fill in all box's")
+		return false
+	} else {
+		return true
+	}
+}
+
 
 // sumbit data to DB from FORM inputs
 async function submitRanks(event) {
 	event.preventDefault();
+	if(validateForm()) {
 	const data = {
 		content: `${usersName.value}'s top 5 ${topic.value}`,
 		num5: num5.value,
@@ -56,6 +80,7 @@ async function submitRanks(event) {
 		refresh();
 		clearForm();
 	});
+}
 };
 function refresh() {
 	window.location.reload();
@@ -74,8 +99,8 @@ function createRankElement(rank) {
 		<li>#2: ${rank.num2}</li>
 		<li id='num1'>#1: ${rank.num1} <img id="victor" src="/IMG/crown.png" alt="number1"></li>
 	</ul>
-	<div id="likeAndDelete">
-	<img onClick="likeBtn()" class="like" id="like" src="/IMG/love.png" alt="like"><label id="likeCount"></label>
+	<div id="downloadAndDelete">
+	<img onClick="downloadBtn()" class="download" id="download" src="/IMG/download-circular-button.png" alt="download">
 	<img onClick="deleteEntry()" class ="delete" id="delete" src="/IMG/delete.png" alt="delete">
 	</div>
 	<div class="_id" id="_id">${rank._id}</div>
@@ -97,21 +122,25 @@ async function displayRanks() {
 
 
 // WORK IN PROGRESS
-function likeBtn() {
-	const like = document.getElementById('like')
-	// const count = document.getElementById('likeCount')
-	if (like.getAttribute('src') === '/IMG/love.png'){
-		like.setAttribute('src', '/IMG/heart.png')
-		// count.innerText++
-		// count.style.margin = '0.5rem'
-		// count.style.fontSize = '1rem'
-	} else {
-		like.setAttribute('src', '/IMG/love.png')
-	// 	count.innerText--
-	// 		if (count.innerText === '0'){
-	// 			count.innerText = ''
-	// 	}
-	}
+function downloadBtn() {
+	
+	const res = fetch('http://localhost:80/ranks')
+	.then((res => res.blob()))
+	.then( res => {
+		const aTag = document.createElement('a');
+
+		// convert blob object into a string
+		const href = URL.createObjectURL(res);
+
+		// allows download and sets file name/type
+		aTag.download = 'ranks.txt'
+      	aTag.href = href;
+
+      	aTag.click();
+    	URL.revokeObjectURL(href);
+		console.log(res)
+	})
+
 }
 // WORK IN PROGRESS
 
@@ -132,18 +161,7 @@ async function deleteEntry() {
 };
 
 
-// clears entry form
-function clearForm() {
-	if(usersName, topic, num5, num4, num3, num2, num1){
-		usersName.value = '';
-		topic.value = '';
-		num5.value = '';
-		num4.value = '';
-		num3.value = '';
-		num2.value = '';
-		num1.value = '';
-	};
-};
+
 
 
 // INCLUDES displayRanks() functionality!
@@ -182,4 +200,3 @@ function rankBtn() {
 	};
 };
 
-console.log(rankList)

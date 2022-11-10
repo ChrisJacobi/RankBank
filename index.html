@@ -23,30 +23,30 @@
     <div id="line"></div>
 
     <main>
-      <form id="form" class="dNone" onsubmit="submitRanks(event)">
+      <form name="postRank" id="form" class="dNone" onsubmit="submitRanks(event)">
         <div id="formContainer">
           <h2 id="FORMtitle">ADD NEW RANK</h2>
           
           <label class="label">Name:</label>
-          <input id="name" class="top5" placeholder="ex: 'John Appleseed'">
+          <input name="name" id="name" class="top5" placeholder="ex: 'John Appleseed'">
 
           <label class="label">Topic:</label>
-          <input id="topic" class="top5" placeholder="ex: 'cats', 'dogs', 'artists'">
+          <input name="topic" id="topic" class="top5" placeholder="ex: 'cats', 'dogs', 'artists'">
 
           <label class="label">Number 5:</label>
-          <input type="text" class="top5" id="num5" placeholder="#5">
+          <input name="top5" type="text" class="top5" id="num5" placeholder="#5">
 
           <label class="label">Number 4:</label>
-          <input type="text" class="top5" id="num4" placeholder="#4">
+          <input name="top4" type="text" class="top5" id="num4" placeholder="#4">
 
           <label class="label">Number 3:</label>
-          <input type="text" class="top5" id="num3" placeholder="#3">
+          <input name="top3" type="text" class="top5" id="num3" placeholder="#3">
 
           <label class="label">Number 2:</label>
-          <input type="text" class="top5" id="num2" placeholder="#2">
+          <input name="top2" type="text" class="top5" id="num2" placeholder="#2">
 
           <label class="num1 label">Number 1:</label>
-          <input type="text" class="top5" id= "num1" class="num1" placeholder="#1">
+          <input name="top1" type="text" class="top5" id= "num1" class="num1" placeholder="#1">
 
           <div id="FORMbtnContainer">
             <button class="formBTN" id="submitBtn">Submit</button>
@@ -58,8 +58,10 @@
       <div id="newRankBtn" class="Btn">NEW RANK</div>
 
       <div id="recentTitleContainer">
-        <img src="/IMG/recent.png" id="recentRanksIcon" alt="recent-ranks-icon">
-        <label id="recentTitle">Recent Ranks</label>
+        <div id="ranksPlusIcon">
+          <img src="/IMG/recent.png" id="recentRanksIcon" alt="recent-ranks-icon">
+          <label id="recentTitle">Recent Ranks</label>
+        </div>
         <button id="showRanks" class="Btn" type="button" onclick="rankBtn()"></button>
       </div>
         <section id="ranks"></section>
