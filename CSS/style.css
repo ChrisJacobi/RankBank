@@ -255,25 +255,29 @@ main #recentTitleContainer #recentTitle {
   }
 }
 @media screen and (min-width: 750px) {
-  main #recentTitleContainer {
-    margin-top: 2.75rem;
+  header {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
-  main #recentTitleContainer #ranksPlusIcon {
-    margin-right: 15rem;
+  #newRankBtn {
+    margin-bottom: 5rem;
   }
   #ranks {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+  #ranksPlusIcon {
+    margin-right: 10rem;
+  }
 }
 @media screen and (min-width: 1250px) {
-  main #recentTitleContainer {
-    margin-top: 6rem;
-  }
-  main #recentTitleContainer #ranksPlusIcon {
-    margin-right: 45rem;
-  }
   #ranks {
     grid-template-columns: repeat(3, 1fr);
+  }
+  #newRankBtn {
+    margin-bottom: 8rem;
+  }
+  #ranksPlusIcon {
+    margin-right: 20rem;
   }
 }

@@ -8,6 +8,7 @@ const num2 = document.getElementById('num2');
 const num1 = document.getElementById('num1');
 const display = document.getElementById('ranks');
 const form = document.getElementById('form');
+const newRankBtn = document.getElementById('newRankBtn');
 let currentRank = null;
 let rankList = [];
 
@@ -16,7 +17,6 @@ window.addEventListener('DOMContentLoaded', rankBtn());
 
 // form pop-up
 function displayForm() {
-	const newRankBtn = document.getElementById('newRankBtn');
 	const form = document.getElementById('form');
 	newRankBtn.addEventListener('click', () => {
 		if (form.classList.contains('dNone')) {
@@ -34,7 +34,7 @@ function displayForm() {
 }; 
 displayForm();
 
-// clears entry form
+// clears form
 function clearForm() {
 	if(usersName, topic, num5, num4, num3, num2, num1){
 		usersName.value = '';
@@ -47,7 +47,7 @@ function clearForm() {
 	};
 };
 
-
+// all inputs must have value or rank won't post
 function validateForm() {
 	if (usersName.value, topic.value, num5.value, num4.value, num3.value, num2.value, num1.value === ''){
 		alert("Must fill in all box's")
@@ -80,12 +80,14 @@ async function submitRanks(event) {
 		refresh();
 		clearForm();
 	});
-}
+	}
 };
+
+// refresh page
 function refresh() {
 	window.location.reload();
 }
-
+// generates HTML for each rank
 function createRankElement(rank) {
 	const rankElement = document.createElement('article')
 	rankElement.classList.add('newRank')
@@ -108,7 +110,7 @@ function createRankElement(rank) {
 	display.appendChild(rankElement);
 }
 
-// displays data from DB on home page
+// displays data to home page
 async function displayRanks() {
 	const res = await fetch('http://localhost:80/ranks');   
 	const ranks = await res.json();
@@ -123,26 +125,25 @@ async function displayRanks() {
 
 // WORK IN PROGRESS
 function downloadBtn() {
-	
 	const res = fetch('http://localhost:80/ranks')
-	.then((res => res.blob()))
-	.then( res => {
-		const aTag = document.createElement('a');
+		.then((res => res.blob()))
+		.then( res => {
+			const aTag = document.createElement('a');
 
-		// convert blob object into a string
-		const href = URL.createObjectURL(res);
+			// convert blob object into a string
+			const href = URL.createObjectURL(res);
 
-		// allows download and sets file name/type
-		aTag.download = 'ranks.txt'
-      	aTag.href = href;
+			// allows download and sets file name/type
+			aTag.download = 'ranks.txt'
+			aTag.href = href;
 
-      	aTag.click();
-    	URL.revokeObjectURL(href);
-		console.log(res)
-	})
-
-}
+			aTag.click();
+			URL.revokeObjectURL(href);
+			console.log(res)
+		})
+};
 // WORK IN PROGRESS
+
 
 // Delete Ranks
 async function deleteEntry() {
@@ -171,6 +172,7 @@ function rankBtn() {
 	const recentTile = document.getElementById('recentTitle');
 	const recentRanksIcon = document.getElementById('recentRanksIcon');
 
+
 	if (display.style.border === '1px solid black'){
 		display.style.border = ''
 	} else {
@@ -185,6 +187,7 @@ function rankBtn() {
 		showRanks.innerHTML = 'SHOW RANKS'
 		showRanks.style.minWidth = '17rem'
 		showRanks.style.borderRadius = '0.5rem'
+		newRankBtn.style.marginBottom = '1.5rem'
 		recentTile.classList.add('dNone')
 		recentRanksIcon.classList.add('dNone')
 	} else {
@@ -193,6 +196,7 @@ function rankBtn() {
 		showRanks.style.minWidth = '5rem'
 		showRanks.style.borderRadius = ''
 		showRanks.innerHTML = 'Hide'
+		newRankBtn.style.marginBottom = ''
 		recentTile.classList.remove('dNone')
 		recentRanksIcon.classList.remove('dNone')
 		display.style.backgroundColor = '#1d3557e8'
