@@ -50,7 +50,7 @@ function clearForm() {
 // all inputs must have value or rank won't post
 function validateForm() {
 	if (usersName.value, topic.value, num5.value, num4.value, num3.value, num2.value, num1.value === ''){
-		alert("Must fill in all box's")
+		alert("ERROR: All inputs must be filled")
 		return false
 	} else {
 		return true
@@ -91,7 +91,7 @@ function refresh() {
 function createRankElement(rank) {
 	const rankElement = document.createElement('article')
 	rankElement.classList.add('newRank')
-	rankElement.id = 'newRank'
+	rankElement.id = rank._id
 	rankElement.innerHTML = `
 	<h3 id='rankTitle'> ${rank.content} </h3>
 	<ul id='top5list'>
@@ -103,7 +103,7 @@ function createRankElement(rank) {
 	</ul>
 	<div id="downloadAndDelete">
 	<img onClick="downloadBtn()" class="download" id="download" src="/IMG/download-circular-button.png" alt="download">
-	<img onClick="deleteEntry()" class ="delete" id="delete" src="/IMG/delete.png" alt="delete">
+	<img onClick="deleteEntry('${rank._id}')" class="delete" id="delete" src="/IMG/delete.png" alt="delete">
 	</div>
 	<div class="_id" id="_id">${rank._id}</div>
 	`
@@ -116,6 +116,7 @@ async function displayRanks() {
 	const ranks = await res.json();
 	ranks.forEach((rank) => {
 		createRankElement(rank)
+		// adds to rank array for easier acess to ranks
 		rankList.push(rank)
 	});
 };
@@ -134,7 +135,7 @@ function downloadBtn() {
 			const href = URL.createObjectURL(res);
 
 			// allows download and sets file name/type
-			aTag.download = 'ranks.txt'
+			aTag.download = 'ranks'
 			aTag.href = href;
 
 			aTag.click();
@@ -146,18 +147,12 @@ function downloadBtn() {
 
 
 // Delete Ranks
-async function deleteEntry() {
-	currentRank = document.getElementById('_id').innerHTML
-    await fetch(`http://localhost:80/rank/${currentRank}`, {
+async function deleteEntry(_id) {
+	currentRank = document.getElementById(_id).innerHTML
+    await fetch(`http://localhost:80/rank/${_id}`, {
         method: 'DELETE',
     }).then(() => {
 		refresh()
-	});
-	rankList.forEach(() => {
-		if (_id === currentRank) {
-			const rank = document.getElementById('newRank')
-			rank.deleteOne();
-		}
 	});
 };
 
@@ -171,6 +166,7 @@ function rankBtn() {
 	const showRanks = document.getElementById('showRanks');
 	const recentTile = document.getElementById('recentTitle');
 	const recentRanksIcon = document.getElementById('recentRanksIcon');
+	const ranksPlusIcon = document.getElementById('ranksPlusIcon');
 
 
 	if (display.style.border === '1px solid black'){
@@ -188,6 +184,7 @@ function rankBtn() {
 		showRanks.style.minWidth = '17rem'
 		showRanks.style.borderRadius = '0.5rem'
 		newRankBtn.style.marginBottom = '1.5rem'
+		ranksPlusIcon.style.marginRight = '0'
 		recentTile.classList.add('dNone')
 		recentRanksIcon.classList.add('dNone')
 	} else {
@@ -197,6 +194,7 @@ function rankBtn() {
 		showRanks.style.borderRadius = ''
 		showRanks.innerHTML = 'Hide'
 		newRankBtn.style.marginBottom = ''
+		ranksPlusIcon.style.marginRight = ''
 		recentTile.classList.remove('dNone')
 		recentRanksIcon.classList.remove('dNone')
 		display.style.backgroundColor = '#1d3557e8'
