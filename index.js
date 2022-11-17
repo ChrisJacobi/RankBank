@@ -102,7 +102,7 @@ function createRankElement(rank) {
 		<li id='num1'>#1: ${rank.num1} <img id="victor" src="/IMG/crown.png" alt="number1"></li>
 	</ul>
 	<div id="downloadAndDelete">
-	<img onClick="downloadBtn()" class="download" id="download" src="/IMG/download-circular-button.png" alt="download">
+	<img onClick="downloadBtn('${rank._id}')" class="download" id="download" src="/IMG/download-circular-button.png" alt="download">
 	<img onClick="deleteEntry('${rank._id}')" class="delete" id="delete" src="/IMG/delete.png" alt="delete">
 	</div>
 	<div class="_id" id="_id">${rank._id}</div>
@@ -123,10 +123,8 @@ async function displayRanks() {
 
 
 
-
-// WORK IN PROGRESS
-function downloadBtn() {
-	const res = fetch('http://localhost:80/ranks')
+function downloadBtn(_id) {
+	const res = fetch(`http://localhost:80/rank/${_id}`)
 		.then((res => res.blob()))
 		.then( res => {
 			const aTag = document.createElement('a');
@@ -135,7 +133,7 @@ function downloadBtn() {
 			const href = URL.createObjectURL(res);
 
 			// allows download and sets file name/type
-			aTag.download = 'ranks'
+			aTag.download = `rank.txt`
 			aTag.href = href;
 
 			aTag.click();
@@ -143,20 +141,17 @@ function downloadBtn() {
 			console.log(res)
 		})
 };
-// WORK IN PROGRESS
+
 
 
 // Delete Ranks
 async function deleteEntry(_id) {
-	currentRank = document.getElementById(_id).innerHTML
     await fetch(`http://localhost:80/rank/${_id}`, {
         method: 'DELETE',
     }).then(() => {
 		refresh()
 	});
 };
-
-
 
 
 

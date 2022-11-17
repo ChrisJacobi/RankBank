@@ -1,5 +1,5 @@
 ## Welcome to Rank Bank
-PLEASE NOTE: For this project to work, you must run 'npm start' in the terminal inside 'rankAPI' (https://github.com/ChrisJacobi/rankAPI) for the application to properly work.
+PLEASE NOTE: For this project to work, you must run 'npm install' and npm start' in the terminal inside 'rankAPI' (https://github.com/ChrisJacobi/rankAPI) for the application to properly work.
 
 # Project by: Chris Jacobi for Code Louisville
 
