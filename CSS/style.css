@@ -169,6 +169,10 @@ main #recentTitleContainer #recentTitle {
   padding-right: 11rem;
   font-weight: 0;
 }
+main #signature {
+  padding-top: 1rem;
+  font-size: 1rem;
+}
 
 #ranks {
   display: -webkit-box;
@@ -184,6 +188,7 @@ main #recentTitleContainer #recentTitle {
   min-width: 80%;
   -webkit-box-shadow: 0px 0px 3px black;
           box-shadow: 0px 0px 3px black;
+  background-color: rgba(29, 53, 87, 0.5137254902);
 }
 #ranks .newRank {
   margin: 1rem;

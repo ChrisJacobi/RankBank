@@ -9,7 +9,6 @@ const num1 = document.getElementById('num1');
 const display = document.getElementById('ranks');
 const form = document.getElementById('form');
 const newRankBtn = document.getElementById('newRankBtn');
-let currentRank = null;
 let rankList = [];
 
 // loads DB rank entries to display on launch
@@ -133,7 +132,7 @@ function downloadBtn(_id) {
 			const href = URL.createObjectURL(res);
 
 			// allows download and sets file name/type
-			aTag.download = `rank.txt`
+			aTag.download = `Rank #${_id}.txt`
 			aTag.href = href;
 
 			aTag.click();
